@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/App/App';
+import './assets/css/style.css';
 
-function App() {
-  return (
-    <React.StrictMode>
-      <div>Hello there cupcake!</div>
-    </React.StrictMode>
-  );
-}
-
-ReactDOM.render(<App />, document.querySelector('#root'));
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root'),
+);

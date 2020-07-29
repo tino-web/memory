@@ -1,0 +1,28 @@
+.tilesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  grid-gap: 10px;
+}
+
+.tilesGrid div {
+  padding-bottom: 70%;
+}
+
+@media (min-width: 768px) {
+  .tilesGrid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .tilesGrid {
+    width: 85%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .tilesGrid {
+    width: 75%;
+  }
+}
