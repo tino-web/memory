@@ -14,12 +14,12 @@ function ContextProvider({ children }) {
   const [currentPlayer, setCurrentPlayer] = useState(1);
   const [playerObj, setPlayerObj] = useState({
     1: {
-      name: '',
+      name: 'Chuck',
       matched: 0,
       moves: 0,
     },
     2: {
-      name: '',
+      name: 'Lucy',
       matched: 0,
       moves: 0,
     },
@@ -74,19 +74,18 @@ function ContextProvider({ children }) {
     updatePlayer('moves', 1);
 
     if (nextPlayer) {
-      swapPlayer();
       setTimeout(() => {
         resetSelectedTiles();
+        swapPlayer();
       }, 2000);
     } else {
       updatePlayer('matched', 1);
     }
   }
 
-  useEffect(() => {
+  function checkMatches() {
     const clickedTiles = tileLocationObj.filter((item) => item.isSelected);
-
-    if (flips === maxFlips && clickedTiles.length === maxFlips) {
+    if (clickedTiles.length === maxFlips) {
       const { tileId } = clickedTiles[0];
       const tilesMatch = clickedTiles.every((el) => el.tileId === tileId);
 
@@ -106,13 +105,21 @@ function ContextProvider({ children }) {
         newMove(true);
       }
     }
-  }, [tileLocationObj, flips]);
+  }
+
+  useEffect(() => {
+    if (flips === maxFlips) {
+      checkMatches();
+    }
+  }, [flips]);
 
   return (
     <Context.Provider value={{
       tileSetObj,
       tileLocationObj,
       handleSelect,
+      playerObj,
+      currentPlayer,
     }}
     >
       {children}

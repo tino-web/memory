@@ -1,32 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../../context/gameContext';
+import PlayerBox from '../PlayerBox/PlayerBox';
 
 function GameBar() {
+  const { playerObj, currentPlayer } = useContext(Context);
+
+  const player1 = <PlayerBox player='1' isPlaying={currentPlayer === 1 && true} playerObj={playerObj[1]} />;
+  const player2 = <PlayerBox player='2' isPlaying={currentPlayer === 2 && true} playerObj={playerObj[2]} />;
+
   return (
     <div className='row justify-content-center mt-3'>
 
-      <div className='col col-4 col-sm-3'>
-        <div className='row'>
-          <div className='col'>Player 1 (Peter)</div>
-        </div>
-        <div className='row'>
-          <div className='col'>Score</div>
-          <div className='col'>Accuracy</div>
-        </div>
-      </div>
+      {player1}
 
       <div className='col col-3 col-sm-3 col-lg-2'>
         Time elapsed
       </div>
 
-      <div className='col col-4 col-sm-3'>
-        <div className='row'>
-          <div className='col'>Player 2 (Paul)</div>
-        </div>
-        <div className='row'>
-          <div className='col'>Score</div>
-          <div className='col'>Accuracy</div>
-        </div>
-      </div>
+      {player2}
 
     </div>
   );
