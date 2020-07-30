@@ -12,6 +12,10 @@ function ContextProvider({ children }) {
   const [tileSetObj] = useState(tileSetInit);
   const [tileLocationObj, setTileLocationObj] = useState(getRandomNumberArr(length, maxFlips));
   const [currentPlayer, setCurrentPlayer] = useState(1);
+  const [gameStarted, setGameStarted] = useState(false);
+  const [gameEnded, setGameEnded] = useState(false);
+  const [timerIsActive, setTimerIsActive] = useState(false);
+
   const [playerObj, setPlayerObj] = useState({
     1: {
       name: 'Chuck',
@@ -25,8 +29,16 @@ function ContextProvider({ children }) {
     },
   });
 
+  function checkGameStarted() {
+    if (playerObj[1].moves === 0) {
+      setGameStarted(true);
+      setTimerIsActive(true);
+    }
+  }
+
   function handleSelect({ isMatched, position }) {
     const clickedTiles = tileLocationObj.filter((item) => item.isSelected);
+    checkGameStarted();
     if (flips < maxFlips && !isMatched && clickedTiles.length < maxFlips) {
       setTileLocationObj((currentObj) => (
         currentObj.map((item) => {
@@ -120,6 +132,8 @@ function ContextProvider({ children }) {
       handleSelect,
       playerObj,
       currentPlayer,
+      gameStarted,
+      timerIsActive,
     }}
     >
       {children}

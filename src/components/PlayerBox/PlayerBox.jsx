@@ -1,12 +1,14 @@
 import React from 'react';
+import PropTypes from 'proptypes';
 
 function PlayerBox({ playerObj, player, isPlaying }) {
   return (
     <div className='col col-4 col-sm-3'>
       <div className='row text-center text-uppercase text-white'>
-        <div className={`col py-1 ${isPlaying ? 'bg-success' : 'bg-secondary'}`}>
+        <div className={`col py-1 ${isPlaying ? 'bg-success isPlaying' : 'bg-secondary'}`}>
           <strong>
-            Player {player} {playerObj.name ? `(${playerObj.name})` : '' }
+            {`Player ${player}`}
+            {playerObj.name ? ` (${playerObj.name})` : '' }
           </strong>
         </div>
       </div>
@@ -27,3 +29,13 @@ function PlayerBox({ playerObj, player, isPlaying }) {
 }
 
 export default PlayerBox;
+
+PlayerBox.propTypes = {
+  playerObj: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    matched: PropTypes.number.isRequired,
+    moves: PropTypes.number.isRequired,
+  }).isRequired,
+  player: PropTypes.string.isRequired,
+  isPlaying: PropTypes.bool.isRequired,
+};

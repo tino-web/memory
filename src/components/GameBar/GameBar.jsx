@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Context } from '../../context/gameContext';
 import PlayerBox from '../PlayerBox/PlayerBox';
+import Timer from '../Timer/Timer';
 
 function GameBar() {
   const { playerObj, currentPlayer } = useContext(Context);
@@ -13,9 +14,7 @@ function GameBar() {
 
       {player1}
 
-      <div className='col col-3 col-sm-3 col-lg-2'>
-        Time elapsed
-      </div>
+      <Timer />
 
       {player2}
 

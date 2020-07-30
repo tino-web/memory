@@ -41,6 +41,10 @@
   object-fit: cover;
 }
 
+.isPlaying::before {
+  content: '👋 ';
+}
+
 @media (min-width: 768px) {
   .tilesGrid {
     grid-template-columns: repeat(5, 1fr);
