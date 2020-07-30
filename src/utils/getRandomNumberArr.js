@@ -1,4 +1,4 @@
-function getRandomArray(length = 20, multiplier=2) {
+function getRandomNumberArr(length = 20, multiplier = 2) {
   if (length % multiplier !== 0) { return []; }
 
   let arr = [];
@@ -14,7 +14,15 @@ function getRandomArray(length = 20, multiplier=2) {
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
 
-  return arr;
+  const arrElements = arr.map((element, index) => ({
+    position: index + 1,
+    tileId: element,
+    isClicked: false,
+    isMatched: false,
+    isMatchedBy: 0,
+  }));
+
+  return arrElements;
 }
 
-export default getRandomArray;
+export default getRandomNumberArr;

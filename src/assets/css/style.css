@@ -1,30 +1,25 @@
 
 .scene {
-  width:100%;
+  width: 100%;
   perspective: 30em;
 }
 
 .tile {
-  width:100%;
-  height:100%;
-  position:relative;
+  width: 100%;
+  height: 100%;
+  position: relative;
   transition: transform 0.5s;
   transform-style: preserve-3d;
 }
 
 .face {
-  width:100%;
-  height:100%;
-  position:absolute;
-  backface-visibility:hidden;
-}
-
-.front {
-  background-color:#0379ff;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
 }
 
 .back {
-  background-color:#333;
   transform: rotateY(180deg);
 }
 

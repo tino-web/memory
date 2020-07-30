@@ -19,7 +19,7 @@ module.exports = function(_env, argv) {
     },
     devServer: {
       port: 3001,
-      host: '172.18.5.138',
+      // host: '172.18.5.138',
       compress: true,
       historyApiFallback: true,
       open: true,
@@ -46,6 +46,14 @@ module.exports = function(_env, argv) {
           test: /\.css$/,
           use: [
             isProduction ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader'
+          ]
+        },
+        {
+          test: /\.(png|jpe$g|gif)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+            }
           ]
         },
         {
