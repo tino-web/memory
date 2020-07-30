@@ -1,12 +1,12 @@
-function getRandomNumberArr(length = 20, multiplier = 2) {
-  if (length % multiplier !== 0) { return []; }
+function getRandomNumberArr(length = 20, maxFlips = 2) {
+  if (length % maxFlips !== 0) { return []; }
 
   let arr = [];
-  for (let i = 1; i <= length / multiplier; i += 1) {
+  for (let i = 1; i <= length / maxFlips; i += 1) {
     arr.push(i);
   }
 
-  arr = Array.from({ length: multiplier }, () => arr).flat();
+  arr = Array.from({ length: maxFlips }, () => arr).flat();
 
   // Durstenfeld shuffle for randomizing array
   for (let i = arr.length - 1; i > 0; i -= 1) {
@@ -17,7 +17,7 @@ function getRandomNumberArr(length = 20, multiplier = 2) {
   const arrElements = arr.map((element, index) => ({
     position: index + 1,
     tileId: element,
-    isClicked: false,
+    isSelected: false,
     isMatched: false,
     isMatchedBy: 0,
   }));
