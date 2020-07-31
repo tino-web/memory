@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Tiles from '../Tiles/Tiles';
 import GameBar from '../GameBar/GameBar';
+import GameSetup from '../GameSetup/GameSetup';
+import { Context } from '../../context/gameContext';
 
 function Game() {
+  const { gameStarted } = useContext(Context);
+
   return (
     <div className='container'>
-      <Tiles />
-      <GameBar />
+      {gameStarted
+        ? (
+          <>
+            <Tiles />
+            <GameBar />
+          </>
+        )
+        : <GameSetup />}
     </div>
   );
 }

@@ -49,22 +49,12 @@ module.exports = function(_env, argv) {
           ]
         },
         {
-          test: /\.(png|jpe$g|gif)$/i,
+          test: /\.(png|jpg|jpeg|gif)$/i,
           use: [
             {
               loader: 'file-loader',
             }
           ]
-        },
-        {
-          test: /\.(png|jpg|gif)$/i,
-          use: {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              name: 'static/media/[name].[hash:8].[ext]'
-            }
-          }
         },
         {
           test: /\.svg$/,

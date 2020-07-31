@@ -132,6 +132,7 @@ function ContextProvider({ children }) {
       handleSelect,
       playerObj,
       currentPlayer,
+      setGameStarted,
       gameStarted,
       timerIsActive,
     }}

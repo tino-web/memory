@@ -3,8 +3,7 @@ import { Context } from '../../context/gameContext';
 
 function Timer() {
   const [seconds, setSeconds] = useState(0);
-  const [isActive, setIsActive] = useState(false);
-  const { gameStarted, timerIsActive } = useContext(Context);
+  const { timerIsActive } = useContext(Context);
 
   useEffect(() => {
     let interval = null;

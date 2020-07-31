@@ -3,13 +3,15 @@ import PropTypes from 'proptypes';
 
 function PlayerBox({ playerObj, player, isPlaying }) {
   return (
-    <div className='col col-4 col-sm-3'>
+    <div className='col col-4 col-sm-4 col-lg-3'>
       <div className='row text-center text-uppercase text-white'>
-        <div className={`col py-1 ${isPlaying ? 'bg-success isPlaying' : 'bg-secondary'}`}>
+        <div className={`col col-md-7 col-12 py-md-1 pt-1 ${isPlaying ? ' bg-success isPlaying' : 'bg-secondary'}`}>
           <strong>
             {`Player ${player}`}
-            {playerObj.name ? ` (${playerObj.name})` : '' }
           </strong>
+        </div>
+        <div className={`col py-md-1 pb-1 ${isPlaying ? ' bg-success' : 'bg-secondary'}`}>
+          {playerObj.name ? <span>({playerObj.name})</span> : ''}
         </div>
       </div>
       <div className='row bg-light'>

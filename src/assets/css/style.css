@@ -45,6 +45,22 @@
   content: '👋 ';
 }
 
+.switch .toggle-off {
+  background-color: #560092;
+  border-color: #560092;
+  color: #FFF;
+}
+
+.switch .toggle-on {
+  background-color: #e1850e;
+  border-color: #e1850e;
+  color: #FFF;
+}
+/* 
+.toggle-off,
+.toggle-off .toggle-handle {
+} */
+
 @media (min-width: 768px) {
   .tilesGrid {
     grid-template-columns: repeat(5, 1fr);
@@ -54,12 +70,12 @@
 
 @media (min-width: 992px) {
   .tilesGrid {
-    width: 85%;
+    width: 90%;
   }
 }
 
 @media (min-width: 1200px) {
   .tilesGrid {
-    width: 75%;
+    width: 78%;
   }
 }
