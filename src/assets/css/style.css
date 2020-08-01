@@ -45,21 +45,28 @@
   content: '👋 ';
 }
 
-.switch .toggle-off {
+.switch-off {
   background-color: #560092;
   border-color: #560092;
   color: #FFF;
 }
 
-.switch .toggle-on {
+.switch-off:hover {
+  background-color: rgba(86, 0, 146, 0.7);
+  color: #FFF;
+}
+
+.switch-on {
   background-color: #e1850e;
   border-color: #e1850e;
   color: #FFF;
 }
-/* 
-.toggle-off,
-.toggle-off .toggle-handle {
-} */
+
+.switch-on:hover {
+  background-color: rgba(225, 133, 14, 0.7);
+  color: #FFF;
+
+}
 
 @media (min-width: 768px) {
   .tilesGrid {

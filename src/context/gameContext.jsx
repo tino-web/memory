@@ -18,12 +18,12 @@ function ContextProvider({ children }) {
 
   const [playerObj, setPlayerObj] = useState({
     1: {
-      name: 'Chuck',
+      name: '',
       matched: 0,
       moves: 0,
     },
     2: {
-      name: 'Lucy',
+      name: '',
       matched: 0,
       moves: 0,
     },
@@ -62,12 +62,12 @@ function ContextProvider({ children }) {
     });
   }
 
-  function updatePlayer(property, value = 1) {
+  function updatePlayer(property, value = 1, player = currentPlayer) {
     setPlayerObj((currentObj) => ({
       ...currentObj,
-      [currentPlayer]: {
-        ...currentObj[currentPlayer],
-        [property]: currentObj[currentPlayer][property] + value,
+      [player]: {
+        ...currentObj[player],
+        [property]: currentObj[player][property] + value,
       },
     }));
   }
@@ -135,6 +135,7 @@ function ContextProvider({ children }) {
       setGameStarted,
       gameStarted,
       timerIsActive,
+      updatePlayer,
     }}
     >
       {children}
