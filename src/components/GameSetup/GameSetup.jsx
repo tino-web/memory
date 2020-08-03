@@ -32,7 +32,7 @@ function GameSetup() {
         {`Player ${player}:`}
       </div>
       <div className='col-6 my-auto'>
-        <input type='text' value={get} className='form-control' onChange={(e) => set(e.target.value)} required={!switcher} />
+        <input type='text' value={get} className='form-control' onChange={(e) => set(e.target.value)} placeholder='Enter name' required={!switcher} />
       </div>
     </div>
   );
@@ -65,7 +65,7 @@ function GameSetup() {
 
             {inputField(2, p2field, setP2field, playerSwitch)}
 
-            <div className='row justify-content-center bg-light border border-bottom-0 border-top-0' style={{ height: '200px' }}>
+            <div className='row justify-content-center bg-light border border-bottom-0 border-top-0' style={{ height: '180px' }}>
               <div className='col-4 my-auto' style={{ textAlign: 'center' }}>
                 <label htmlFor='card1'>
                   <img src={card1Img} alt='' className='w-100' />
@@ -87,9 +87,9 @@ function GameSetup() {
               </div>
             </div>
 
-            <div className='row justify-content-center'>
+            <div className='row justify-content-center bg-light border rounded-bottom border-top-0 pb-4' style={{ height: '50px'}}>
               <div className='col-5 my-auto' style={{ textAlign: 'center' }}>
-                <input type='submit' className='btn bg-warning' value='Start Game' />
+                <input type='submit' className='btn orange border' value='Start Game' />
               </div>
             </div>
           </div>

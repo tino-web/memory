@@ -74,6 +74,16 @@
   color: #FFF;
 }
 
+.orange {
+  background-color: #e1850e;
+  color: white;
+  transition: background-color 500ms;
+}
+
+.orange:hover {
+  background-color: #560092;
+  color: white;
+}
 .switch-on {
   background-color: #e1850e;
   border-color: #e1850e;
