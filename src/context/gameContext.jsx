@@ -15,6 +15,7 @@ function ContextProvider({ children }) {
   const [gameStarted, setGameStarted] = useState(false);
   const [gameEnded, setGameEnded] = useState(false);
   const [timerIsActive, setTimerIsActive] = useState(false);
+  const [tileBg, setTileBg] = useState('');
 
   const [playerObj, setPlayerObj] = useState({
     1: {
@@ -136,6 +137,8 @@ function ContextProvider({ children }) {
       gameStarted,
       timerIsActive,
       updatePlayer,
+      setTileBg,
+      tileBg,
     }}
     >
       {children}

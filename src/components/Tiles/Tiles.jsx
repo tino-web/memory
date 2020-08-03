@@ -7,6 +7,7 @@ function Tiles() {
     tileSetObj,
     tileLocationObj,
     handleSelect,
+    tileBg,
   } = useContext(Context);
 
   const tilesComponents = tileLocationObj.map((tileLocationItem) => {
@@ -17,6 +18,7 @@ function Tiles() {
         tileSetItem={tileSetItem}
         handleClick={handleSelect}
         tileLocationItem={tileLocationItem}
+        tileBg={tileBg}
       />
     );
   });
