@@ -21,8 +21,8 @@ function GameSetup() {
     setGameStarted(true);
   };
 
-  const inputField = (player, get, set) => (
-    <div className='row justify-content-center bg-light border border-bottom-0 border-top-0' style={{ height: '50px' }}>
+  const inputField = (player, get, set, playerSwitch) => (
+    <div className={`row justify-content-center bg-light border border-bottom-0 border-top-0 showRow ${playerSwitch ? 'hideRow' : ''}`} style={{ height: '50px' }}>
       <div className='col-3 my-auto' style={{ textAlign: 'right' }}>
         {`Player ${player}:`}
       </div>
@@ -57,7 +57,7 @@ function GameSetup() {
 
             {inputField(1, p1field, setP1field)}
 
-            {!playerSwitch ? inputField(2, p2field, setP2field) : null}
+            {inputField(2, p2field, setP2field, playerSwitch)}
 
             <div className='row justify-content-center bg-light border border-bottom-0 border-top-0' style={{ height: '50px' }}>
               <div className='col-4 my-auto' style={{ textAlign: 'right' }}>
