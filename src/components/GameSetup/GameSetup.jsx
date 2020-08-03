@@ -47,7 +47,7 @@ function GameSetup() {
               <img src={logoImg} style={{ maxWidth: '100%', display: 'block', marginLeft: 'auto', marginRight: 'auto' }} alt='Memory' />
             </div>
 
-            <div className='row justify-content-center bg-light border rounded-top border-bottom-0' style={{ height: '50px' }}>
+            <div className='row justify-content-center bg-light border rounded-top border-bottom-0' style={{ height: '70px', paddingTop: '20px' }}>
               <div className='col-5 my-auto' style={{ textAlign: 'right' }}>
                 1 Player
               </div>
