@@ -18,11 +18,9 @@ function Timer() {
   }, [timerIsActive, seconds]);
 
   return (
-    <div className='col col-3 col-sm-3 col-lg-2 text-center'>
-      <h3>
-        {`${Math.floor(seconds / 60)}:${(`0${Math.floor(seconds % 60)}`).slice(-2)}`}
-      </h3>
-    </div>
+    <>
+      {`${Math.floor(seconds / 60)}:${(`0${Math.floor(seconds % 60)}`).slice(-2)}`}
+    </>
   );
 }
 

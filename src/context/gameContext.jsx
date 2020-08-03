@@ -12,19 +12,20 @@ function ContextProvider({ children }) {
   const [tileSetObj] = useState(tileSetInit);
   const [tileLocationObj, setTileLocationObj] = useState(getRandomNumberArr(length, maxFlips));
   const [currentPlayer, setCurrentPlayer] = useState(1);
-  const [gameStarted, setGameStarted] = useState(false);
+  const [gameStarted, setGameStarted] = useState(true); // Set to False
   const [gameEnded, setGameEnded] = useState(false);
   const [timerIsActive, setTimerIsActive] = useState(false);
-  const [tileBg, setTileBg] = useState('');
+  const [tileBg, setTileBg] = useState('card1');
+  const [playerNumber, setPlayerNumber] = useState(2);
 
   const [playerObj, setPlayerObj] = useState({
     1: {
-      name: '',
+      name: 'Peter',
       matched: 0,
       moves: 0,
     },
     2: {
-      name: '',
+      name: 'Andre',
       matched: 0,
       moves: 0,
     },
@@ -89,7 +90,9 @@ function ContextProvider({ children }) {
     if (nextPlayer) {
       setTimeout(() => {
         resetSelectedTiles();
-        swapPlayer();
+        if (playerNumber === 2) {
+          swapPlayer();
+        }
       }, 2000);
     } else {
       updatePlayer('matched', 1);
@@ -139,6 +142,8 @@ function ContextProvider({ children }) {
       updatePlayer,
       setTileBg,
       tileBg,
+      setPlayerNumber,
+      playerNumber,
     }}
     >
       {children}

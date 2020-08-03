@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Tiles from '../Tiles/Tiles';
 import GameBar from '../GameBar/GameBar';
+import ScoreBoard from '../GameBar/ScoreBoard';
 import GameSetup from '../GameSetup/GameSetup';
 import { Context } from '../../context/gameContext';
 
@@ -13,7 +14,8 @@ function Game() {
         ? (
           <>
             <Tiles />
-            <GameBar />
+            {/* <GameBar /> */}
+            <ScoreBoard />
           </>
         )
         : <GameSetup />}

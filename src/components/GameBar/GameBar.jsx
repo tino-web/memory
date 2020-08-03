@@ -4,7 +4,11 @@ import PlayerBox from '../PlayerBox/PlayerBox';
 import Timer from '../Timer/Timer';
 
 function GameBar() {
-  const { playerObj, currentPlayer } = useContext(Context);
+  const {
+    playerObj,
+    currentPlayer,
+    playerNumber,
+  } = useContext(Context);
 
   const player1 = <PlayerBox player='1' isPlaying={currentPlayer === 1 && true} playerObj={playerObj[1]} />;
   const player2 = <PlayerBox player='2' isPlaying={currentPlayer === 2 && true} playerObj={playerObj[2]} />;
@@ -16,7 +20,7 @@ function GameBar() {
 
       <Timer />
 
-      {player2}
+      {playerNumber === 2 ? player2 : null}
 
     </div>
   );

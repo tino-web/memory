@@ -19,7 +19,7 @@ module.exports = function(_env, argv) {
     },
     devServer: {
       port: 3001,
-      // host: '172.18.5.138',
+      host: '192.168.1.11',
       compress: true,
       historyApiFallback: true,
       open: true,

@@ -11,6 +11,7 @@ function GameSetup() {
     setGameStarted,
     updatePlayer,
     setTileBg,
+    setPlayerNumber,
   } = useContext(Context);
 
   const [playerSwitch, setPlayerSwitch] = useState(false);
@@ -21,7 +22,12 @@ function GameSetup() {
   const handleSubmit = (e) => {
     e.preventDefault();
     updatePlayer('name', p1field, 1);
-    updatePlayer('name', p2field, 2);
+    if (playerSwitch) {
+      setPlayerNumber(1);
+    } else {
+      setPlayerNumber(2);
+      updatePlayer('name', p2field, 2);
+    }
     setTileBg(cardBg);
     setGameStarted(true);
   };
@@ -105,3 +111,4 @@ export default GameSetup;
 // https://gitbrent.github.io/bootstrap4-toggle/
 
 // <a href="https://www.vecteezy.com/free-vector/playing-card-back">Playing Card Back Vectors by Vecteezy</a>
+// https://www.vecteezy.com/vector-art/102385-vector-playing-card-back

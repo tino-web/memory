@@ -63,15 +63,21 @@
   content: '👋 ';
 }
 
+.isPlaying {
+  background-color: green;
+  color: white;
+  border-top-left-radius: 0.25rem;
+}
+
 .switch-off {
   background-color: #560092;
   border-color: #560092;
-  color: #FFF;
+  color: white;
 }
 
 .switch-off:hover {
   background-color: rgba(86, 0, 146, 0.7);
-  color: #FFF;
+  color: white;
 }
 
 .orange {
@@ -80,20 +86,25 @@
   transition: background-color 500ms;
 }
 
+.tooltipper {
+  border-bottom: 1px dashed #ADADAD;
+  cursor: help;
+}
+
 .orange:hover {
   background-color: #560092;
   color: white;
 }
+
 .switch-on {
   background-color: #e1850e;
   border-color: #e1850e;
-  color: #FFF;
+  color: white;
 }
 
 .switch-on:hover {
   background-color: rgba(225, 133, 14, 0.7);
-  color: #FFF;
-
+  color: white;
 }
 
 .hideRow {
