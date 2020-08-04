@@ -129,9 +129,3 @@ function GameSetup() {
 }
 
 export default GameSetup;
-
-// Icons made by < a href = "https://www.flaticon.com/authors/freepik" title = "Freepik" > Freepik</a > from < a href = "https://www.flaticon.com/" title = "Flaticon" > www.flaticon.com</a >
-// https://gitbrent.github.io/bootstrap4-toggle/
-
-// <a href="https://www.vecteezy.com/free-vector/playing-card-back">Playing Card Back Vectors by Vecteezy</a>
-// https://www.vecteezy.com/vector-art/102385-vector-playing-card-back
