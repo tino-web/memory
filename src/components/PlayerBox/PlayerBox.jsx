@@ -8,7 +8,8 @@ function PlayerBox({ playerObj, player, isPlaying }) {
     <div className='col-5 text-center'>
       <ReactTooltip effect='solid' />
       <div className='row'>
-        <div className={`col text-uppercase my-auto pt-1 ${isPlaying ? 'isPlaying rounded' : ''}`} style={{ height: '35px'}}>
+        <div className={`col text-uppercase my-auto pt-1 ${player === '1' ? 'top-left-radius' : 'top-right-radius'} ${isPlaying ? 'isPlaying' : ''}`} 
+          style={{ height: '35px' }}>
           <span style={{ fontWeight: '700', fontSize: '1.1rem'}}>{playerObj.name}</span>
         </div>
       </div>
@@ -42,31 +43,6 @@ function PlayerBox({ playerObj, player, isPlaying }) {
 
   );
 }
-
-{/* <div className='col col-4 col-sm-4 col-lg-3'>
-      <div className='row text-center text-uppercase text-white'>
-        <div className={`col col-md-6 col-12 py-md-1 pt-1 px-0 ${isPlaying ? ' bg-success isPlaying' : 'bg-secondary'}`}>
-          <strong>
-            
-          </strong>
-        </div>
-        <div className={`col py-md-1 pb-1 ${isPlaying ? ' bg-success' : 'bg-secondary'}`}>
-          {playerObj.name ? <span></span> : ''}
-        </div>
-      </div>
-      <div className='row bg-light'>
-        <div className='col text-center'>
-          Score:
-          <br />
-          
-        </div>
-        <div className='col text-center'>
-          Moves:
-          <br />
-          
-        </div>
-      </div>
-    </div> */}
 
 export default PlayerBox;
 

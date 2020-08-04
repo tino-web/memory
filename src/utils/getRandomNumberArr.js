@@ -19,7 +19,6 @@ function getRandomNumberArr(length = 20, maxFlips = 2) {
     tileId: element,
     isSelected: false,
     isMatched: false,
-    isMatchedBy: 0,
   }));
 
   return arrElements;

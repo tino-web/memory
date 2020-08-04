@@ -9,10 +9,11 @@
   height: 100%;
   position: relative;
   transition: transform 0.5s;
+  opacity: 1;
   transform-style: preserve-3d;
   border-radius: 10px;
   border: solid white 2px;
-  box-shadow: 0 0 0 1pt rgba(132, 0, 2, 1)
+  box-shadow: 0 0 0 1pt rgb(132, 0, 2);
 }
 
 .tileBtn {
@@ -51,6 +52,10 @@
   transform: rotateY(180deg);
 }
 
+.isMatched {
+  visibility: hidden;
+}
+
 .tilesGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -66,7 +71,14 @@
 .isPlaying {
   background-color: green;
   color: white;
+}
+
+.top-left-radius {
   border-top-left-radius: 0.25rem;
+}
+
+.top-right-radius {
+  border-top-right-radius: 0.25rem;
 }
 
 .switch-off {

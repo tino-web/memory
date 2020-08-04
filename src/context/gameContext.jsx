@@ -20,12 +20,12 @@ function ContextProvider({ children }) {
 
   const [playerObj, setPlayerObj] = useState({
     1: {
-      name: 'Peter',
+      name: '',
       matched: 0,
       moves: 0,
     },
     2: {
-      name: 'Andre',
+      name: '',
       matched: 0,
       moves: 0,
     },
@@ -39,9 +39,9 @@ function ContextProvider({ children }) {
   }
 
   function handleSelect({ isMatched, position }) {
-    const clickedTiles = tileLocationObj.filter((item) => item.isSelected);
+    const selectedTiles = tileLocationObj.filter((item) => item.isSelected);
     checkGameStarted();
-    if (flips < maxFlips && !isMatched && clickedTiles.length < maxFlips) {
+    if (flips < maxFlips && !isMatched && selectedTiles.length < maxFlips) {
       setTileLocationObj((currentObj) => (
         currentObj.map((item) => {
           if (item.position !== position) return item;
@@ -100,23 +100,25 @@ function ContextProvider({ children }) {
   }
 
   function checkMatches() {
-    const clickedTiles = tileLocationObj.filter((item) => item.isSelected);
-    if (clickedTiles.length === maxFlips) {
-      const { tileId } = clickedTiles[0];
-      const tilesMatch = clickedTiles.every((el) => el.tileId === tileId);
+    const selectedTiles = tileLocationObj.filter((item) => item.isSelected);
+    if (selectedTiles.length === maxFlips) {
+      const { tileId } = selectedTiles[0];
+      const tilesMatch = selectedTiles.every((el) => el.tileId === tileId);
 
       if (tilesMatch) {
-        setTileLocationObj((prevState) => (
-          prevState.map((item) => {
-            if (item.tileId !== tileId) return item;
-            return {
-              ...item,
-              isMatched: true,
-              isSelected: false,
-            };
-          })
-        ));
-        newMove();
+        setTimeout(() => {
+          setTileLocationObj((prevState) => (
+            prevState.map((item) => {
+              if (item.tileId !== tileId) return item;
+              return {
+                ...item,
+                isMatched: true,
+                isSelected: false,
+              };
+            })
+          ));
+          newMove();
+        }, 1000);
       } else {
         newMove(true);
       }
