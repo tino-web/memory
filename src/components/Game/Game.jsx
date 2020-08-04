@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { Context } from '../../context/gameContext';
-import GameSetup from '../GameSetup/GameSetup';
-import Tiles from '../Tiles/Tiles';
-import ScoreBoard from '../ScoreBoard/ScoreBoard';
-import GameEnder from '../GameEnder/GameEnder';
+import { Context } from '@context/gameContext';
+import GameSetup from '@components/GameSetup/GameSetup';
+import Tiles from '@components/Tiles/Tiles';
+import ScoreBoard from '@components/ScoreBoard/ScoreBoard';
+import GameEnder from '@components/GameEnder/GameEnder';
 
 function Game() {
   const {

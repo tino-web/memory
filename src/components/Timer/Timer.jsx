@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Context } from '../../context/gameContext';
+import { Context } from '@context/gameContext';
 
 function Timer() {
   const [seconds, setSeconds] = useState(0);
@@ -17,9 +17,11 @@ function Timer() {
     return () => clearInterval(interval);
   }, [timerIsActive, seconds]);
 
+  const timer = `${Math.floor(seconds / 60)}:${(`0${Math.floor(seconds % 60)}`).slice(-2)}`;
+
   return (
     <>
-      {`${Math.floor(seconds / 60)}:${(`0${Math.floor(seconds % 60)}`).slice(-2)}`}
+      {timer}
     </>
   );
 }

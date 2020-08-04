@@ -87,11 +87,11 @@
 }
 
 @keyframes blinkingBackground {
-  0% { background-color: hotpink;}
-  25% { background-color: indigo;}
-  50% { background-color: seagreen;}
-  75% { background-color: mediumvioletred;}
-  100% { background-color: orangered;}
+  0% { background-color: hotpink; }
+  25% { background-color: indigo; }
+  50% { background-color: seagreen; }
+  75% { background-color: mediumvioletred; }
+  100% { background-color: orangered; }
 }
 
 .top-left-radius {
@@ -120,7 +120,7 @@
 }
 
 .tooltipper {
-  border-bottom: 1px dashed #ADADAD;
+  border-bottom: 1px dashed #adadad;
   cursor: help;
 }
 
@@ -145,9 +145,14 @@
   overflow: hidden;
 }
 
+.btn:active,
+.btn:focus {
+  box-shadow: none;
+  outline: none !important;
+}
+
 .showRow {
-  transition: height 500ms;
-  transition-timing-function: ease-out;
+  transition: height ease-out 500ms;
 }
 
 @media (min-width: 768px) {

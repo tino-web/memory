@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import Tile from '../Tile/Tile';
-import { Context } from '../../context/gameContext';
+import Tile from '@components/Tile/Tile';
+import { Context } from '@context/gameContext';
 
 function Tiles() {
   const {

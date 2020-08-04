@@ -26,7 +26,12 @@ module.exports = function(_env, argv) {
       overlay: true,
     },
     resolve: {
-      extensions: ['.js', '.jsx']
+      extensions: ['.js', '.jsx'],
+      alias: {
+        '@components': path.resolve(__dirname, 'src/components/'),
+        '@context': path.resolve(__dirname, 'src/context/'),
+        '@assets': path.resolve(__dirname, 'src/assets/'),
+      }
     },
     module: {
       rules: [

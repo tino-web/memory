@@ -13,26 +13,14 @@ function ContextProvider({ children }) {
   const [flips, setFlips] = useState(0);
   const [tileSetObj] = useState(tileSetInit);
   const [tileLocationObj, setTileLocationObj] = useState(getRandomNumberArr(length, maxFlips));
-  const [currentPlayer, setCurrentPlayer] = useState(1);
-  const [gameStarted, setGameStarted] = useState(false); // Set to false
-  const [gameEnded, setGameEnded] = useState(false); // Set to false
-  const [timerIsActive, setTimerIsActive] = useState(false);
-  const [tileBg, setTileBg] = useState('card1');
-  const [playerNumber, setPlayerNumber] = useState(2);
-  const [winner, setWinner] = useState(0);
+  const [currentPlayer, setCurrentPlayer] = useState(1); // default: 1
+  const [gameStarted, setGameStarted] = useState(true); // default: false
+  const [gameEnded, setGameEnded] = useState(true); // default: false
+  const [timerIsActive, setTimerIsActive] = useState(false); // default: false
+  const [tileBg, setTileBg] = useState('card1'); // default: card1
+  const [playerNumber, setPlayerNumber] = useState(1); // default: 2
+  const [winner, setWinner] = useState(1); // default: 0
   const [playerObj, setPlayerObj] = useState(playerObjInit);
-
-  function newGame() {
-    setGameEnded(false);
-    setGameStarted(false);
-    setPlayerObj(playerObjInit);
-    setSetsLeft(length / maxFlips);
-    setTileLocationObj(getRandomNumberArr(length, maxFlips));
-    setCurrentPlayer(1);
-    setPlayerNumber(2);
-    setWinner(0);
-    setFlips(0);
-  }
 
   function checkGameStarted() {
     if (playerObj[1].moves === 0) {
@@ -58,6 +46,15 @@ function ContextProvider({ children }) {
     }
   }
 
+  function resetSelectedTiles() {
+    setTileLocationObj((currentData) => (
+      currentData.map((item) => ({
+        ...item,
+        isSelected: false,
+      }))
+    ));
+  }
+
   function swapPlayer() {
     setCurrentPlayer((prevPlayer) => {
       if (prevPlayer === 1) {
@@ -77,17 +74,6 @@ function ContextProvider({ children }) {
     }));
   }
 
-  function resetSelectedTiles() {
-    setTileLocationObj((currentData) => (
-      currentData.map((item) => ({
-        ...item,
-        isSelected: false,
-      }))
-    ));
-  }
-
-
-
   function newMove(nextPlayer) {
     setFlips(0);
     updatePlayer('moves', 1);
@@ -102,6 +88,18 @@ function ContextProvider({ children }) {
     } else {
       updatePlayer('matched', 1);
     }
+  }
+
+  function newGame() {
+    setGameEnded(false);
+    setGameStarted(false);
+    setPlayerObj(playerObjInit);
+    setSetsLeft(length / maxFlips);
+    setTileLocationObj(getRandomNumberArr(length, maxFlips));
+    setCurrentPlayer(1);
+    setPlayerNumber(2);
+    setWinner(0);
+    setFlips(0);
   }
 
   function checkMatches() {
