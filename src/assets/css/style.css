@@ -73,6 +73,27 @@
   color: white;
 }
 
+.isWinner {
+  color: white;
+  animation: blinkingBackground 2s infinite;
+}
+
+.isWinner::before {
+  content: '🎉 ';
+}
+
+.isWinner::after {
+  content: ' 🎉';
+}
+
+@keyframes blinkingBackground {
+  0% { background-color: hotpink;}
+  25% { background-color: indigo;}
+  50% { background-color: seagreen;}
+  75% { background-color: mediumvioletred;}
+  100% { background-color: orangered;}
+}
+
 .top-left-radius {
   border-top-left-radius: 0.25rem;
 }

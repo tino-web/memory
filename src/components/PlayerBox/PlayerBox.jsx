@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'proptypes';
 import ReactTooltip from 'react-tooltip';
 
-function PlayerBox({ playerObj, player, isPlaying }) {
+function PlayerBox({ playerObj, player, isPlaying, isWinner }) {
   return (
 
     <div className='col-5 text-center'>
       <ReactTooltip effect='solid' />
       <div className='row'>
-        <div className={`col text-uppercase my-auto pt-1 ${player === '1' ? 'top-left-radius' : 'top-right-radius'} ${isPlaying ? 'isPlaying' : ''}`} 
+        <div className={`col text-uppercase my-auto pt-1 ${player === '1' ? 'top-left-radius' : 'top-right-radius'} ${isPlaying ? 'isPlaying' : ''} ${isWinner ? 'isWinner' : ''}`} 
           style={{ height: '35px' }}>
           <span style={{ fontWeight: '700', fontSize: '1.1rem'}}>{playerObj.name}</span>
         </div>
@@ -54,4 +54,5 @@ PlayerBox.propTypes = {
   }).isRequired,
   player: PropTypes.string.isRequired,
   isPlaying: PropTypes.bool.isRequired,
+  isWinner: PropTypes.bool.isRequired,
 };

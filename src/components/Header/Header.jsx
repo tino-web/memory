@@ -15,9 +15,6 @@ function Header() {
               <a className='nav-link' href='#'>Game</a>
             </li>
             <li className='nav-item'>
-              <a className='nav-link' href='#'>Scores</a>
-            </li>
-            <li className='nav-item'>
               <a className='nav-link' href='#'>Customize Tiles</a>
             </li>
           </ul>
