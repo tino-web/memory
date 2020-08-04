@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{4:function(e,n,o){"use strict";o.r(n);var r=o(0),t=o.n(r),c=o(1),i=o.n(c),d=o(3),u=o.n(d),a=t()(i.a.StrictMode,{},void 0,t()("div",{},void 0,"Hello there cupcake!"));function p(){return a}u.a.render(t()(p,{}),document.querySelector("#root"))}},[[4,1,5,4,6,2,3]]]);
