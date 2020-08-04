@@ -14,12 +14,12 @@ function ContextProvider({ children }) {
   const [tileSetObj] = useState(tileSetInit);
   const [tileLocationObj, setTileLocationObj] = useState(getRandomNumberArr(length, maxFlips));
   const [currentPlayer, setCurrentPlayer] = useState(1); // default: 1
-  const [gameStarted, setGameStarted] = useState(true); // default: false
-  const [gameEnded, setGameEnded] = useState(true); // default: false
+  const [gameStarted, setGameStarted] = useState(false); // default: false
+  const [gameEnded, setGameEnded] = useState(false); // default: false
   const [timerIsActive, setTimerIsActive] = useState(false); // default: false
   const [tileBg, setTileBg] = useState('card1'); // default: card1
-  const [playerNumber, setPlayerNumber] = useState(1); // default: 2
-  const [winner, setWinner] = useState(1); // default: 0
+  const [playerNumber, setPlayerNumber] = useState(2); // default: 2
+  const [winner, setWinner] = useState(0); // default: 0
   const [playerObj, setPlayerObj] = useState(playerObjInit);
 
   function checkGameStarted() {

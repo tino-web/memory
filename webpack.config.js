@@ -14,12 +14,11 @@ module.exports = function(_env, argv) {
     entry: './src/index.jsx',
     output: {
       path: path.resolve(__dirname, 'dist'),
-      publicPath: '/',
+      publicPath: '/memory/',
       filename: isProduction ? 'assets/js/[name].[chunkhash:8].js' : 'assets/js/[name].[hash].js'
     },
     devServer: {
       port: 3001,
-      host: '172.18.5.223',
       compress: true,
       historyApiFallback: true,
       open: true,
