@@ -23,7 +23,7 @@ function Header() {
         <div className='collapse navbar-collapse' id='navbar'>
           <ul className='navbar-nav mr-auto'>
             <li className='nav-item'>
-              <NavLink activeClassName='active' className='nav-link' to='/'>
+              <NavLink activeClassName='active' className='nav-link' exact to='/'>
                 Game
               </NavLink>
             </li>

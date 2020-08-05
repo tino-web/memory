@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from '@components/Header/Header';
 import Game from '@components/Game/Game';
 import Footer from '@components/Footer/Footer';
+import Customizer from '@components/Customizer/Customizer';
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
         <Route exact path='/'>
           <Game />
         </Route>
-        <Route path='/customizer' />
+        <Route path='/customizer'>
+          <Customizer />
+        </Route>
       </Switch>
       <Footer />
     </div>
