@@ -74,7 +74,7 @@ function GameSetup() {
         <div className='row justify-content-center'>
           <div className='col pt-4' style={{ maxWidth: '400px' }}>
             <div className='row pb-3'>
-              <img src={logoImg} className='mx-auto d-block w-100' alt='Memory' />
+              <img src={logoImg} className='mx-auto d-block' style={{ width: '400px', height: '93px'}} alt='Memory' />
             </div>
 
             <div
