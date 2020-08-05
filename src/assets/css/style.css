@@ -1,6 +1,9 @@
+/* Tiles */
 
 .scene {
   width: 100%;
+  -webkit-perspective: 30em;
+  -moz-perspective: 30em;
   perspective: 30em;
 }
 
@@ -8,8 +11,11 @@
   width: 100%;
   height: 100%;
   position: relative;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
   transition: transform 0.5s;
-  opacity: 1;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
   border-radius: 10px;
   border: solid white 2px;
@@ -33,6 +39,7 @@
 .tileImg {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -41,14 +48,18 @@
   width: 100%;
   height: 100%;
   position: absolute;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 .back {
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
 .isTurned {
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
@@ -64,6 +75,21 @@
   grid-gap: 10px;
 }
 
+/* Scoreboard */
+
+.top-left-radius {
+  border-top-left-radius: 0.25rem;
+}
+
+.top-right-radius {
+  border-top-right-radius: 0.25rem;
+}
+
+.tooltipper {
+  border-bottom: 1px dashed #adadad;
+  cursor: help;
+}
+
 .isPlaying::before {
   content: '👋 ';
 }
@@ -71,11 +97,6 @@
 .isPlaying {
   background-color: green;
   color: white;
-}
-
-.isWinner {
-  color: white;
-  animation: blinkingBackground 2s infinite;
 }
 
 .isWinner::before {
@@ -86,6 +107,29 @@
   content: ' 🎉';
 }
 
+.isWinner {
+  color: white;
+  -webkit-animation: blinkingBackground 2s infinite;
+  -moz-animation: blinkingBackground 2s infinite;
+  animation: blinkingBackground 2s infinite;
+}
+
+@-webkit-keyframes blinkingBackground {
+  0% { background-color: hotpink; }
+  25% { background-color: indigo; }
+  50% { background-color: seagreen; }
+  75% { background-color: mediumvioletred; }
+  100% { background-color: orangered; }
+}
+
+@-moz-keyframes blinkingBackground {
+  0% { background-color: hotpink; }
+  25% { background-color: indigo; }
+  50% { background-color: seagreen; }
+  75% { background-color: mediumvioletred; }
+  100% { background-color: orangered; }
+}
+
 @keyframes blinkingBackground {
   0% { background-color: hotpink; }
   25% { background-color: indigo; }
@@ -94,12 +138,12 @@
   100% { background-color: orangered; }
 }
 
-.top-left-radius {
-  border-top-left-radius: 0.25rem;
-}
+/* Setup */
 
-.top-right-radius {
-  border-top-right-radius: 0.25rem;
+.btn:active,
+.btn:focus {
+  box-shadow: none;
+  outline: none !important;
 }
 
 .switch-off {
@@ -116,12 +160,9 @@
 .orange {
   background-color: #e1850e;
   color: white;
+  -webkit-transition: background-color 500ms;
+  -moz-transition: background-color 500ms;
   transition: background-color 500ms;
-}
-
-.tooltipper {
-  border-bottom: 1px dashed #adadad;
-  cursor: help;
 }
 
 .orange:hover {
@@ -140,20 +181,18 @@
   color: white;
 }
 
+.showRow {
+  -webkit-transition: height ease-out 500ms;
+  -moz-transition: height ease-out 500ms;
+  transition: height ease-out 500ms;
+}
+
 .hideRow {
   height: 0 !important;
   overflow: hidden;
 }
 
-.btn:active,
-.btn:focus {
-  box-shadow: none;
-  outline: none !important;
-}
-
-.showRow {
-  transition: height ease-out 500ms;
-}
+/* Media queries */
 
 @media (min-width: 768px) {
   .tilesGrid {
