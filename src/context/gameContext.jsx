@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'proptypes';
-import tileSetInit from '../data/tileSet';
+import tileSetObjInit from '../data/tileSet';
 import playerObjInit from '../data/playerObj';
 import getRandomNumberArr from '../utils/getRandomNumberArr';
 
@@ -9,9 +9,10 @@ const Context = React.createContext();
 function ContextProvider({ children }) {
   const maxFlips = 2;
   const length = 20;
+  const defaultTileSet = tileSetObjInit.find((item) => item.tileSetId === 1);
   const [setsLeft, setSetsLeft] = useState(length / maxFlips);
   const [flips, setFlips] = useState(0);
-  const [tileSetObj] = useState(tileSetInit);
+  const [tileSetObj] = useState(defaultTileSet);
   const [tileLocationObj, setTileLocationObj] = useState(getRandomNumberArr(length, maxFlips));
   const [currentPlayer, setCurrentPlayer] = useState(1); // default: 1
   const [gameStarted, setGameStarted] = useState(false); // default: false
