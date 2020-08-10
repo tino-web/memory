@@ -2,13 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
-const TerserWebpackPlugin = require("terser-webpack-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const TerserWebpackPlugin = require('terser-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = function(_env, argv) {
-
-  const isProduction = argv.mode === "production";
-  const isDevelopment = !isProduction;
+  const isProduction = argv.mode === 'production';
 
   return {
     devtool: 'inline-source-map',
@@ -28,11 +26,11 @@ module.exports = function(_env, argv) {
     resolve: {
       extensions: ['.js', '.jsx'],
       alias: {
-        '@components': path.resolve(__dirname, 'src/components/'),
-        '@context': path.resolve(__dirname, 'src/context/'),
-        '@assets': path.resolve(__dirname, 'src/assets/'),
-        '@utils': path.resolve(__dirname, 'src/utils/'),
-      }
+        components: path.resolve(__dirname, 'src/components/'),
+        context: path.resolve(__dirname, 'src/context/'),
+        assets: path.resolve(__dirname, 'src/assets/'),
+        utils: path.resolve(__dirname, 'src/utils/'),
+      },
     },
     module: {
       rules: [
