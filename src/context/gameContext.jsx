@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'proptypes';
-import tileSetObjInit from '../data/tileSet';
 import playerObjInit from '../data/playerObj';
 import getRandomNumberArr from '../utils/getRandomNumberArr';
 
@@ -9,10 +8,8 @@ const Context = React.createContext();
 function ContextProvider({ children }) {
   const maxFlips = 2;
   const length = 20;
-  const defaultTileSet = tileSetObjInit.find((item) => item.tileSetId === 1);
-  const [setsLeft, setSetsLeft] = useState(length / maxFlips);
+  const [pairsLeft, setPairsLeft] = useState(length / maxFlips);
   const [flips, setFlips] = useState(0);
-  const [tileSetObj] = useState(defaultTileSet);
   const [tileLocationObj, setTileLocationObj] = useState(getRandomNumberArr(length, maxFlips));
   const [currentPlayer, setCurrentPlayer] = useState(1); // default: 1
   const [gameStarted, setGameStarted] = useState(false); // default: false
@@ -95,7 +92,7 @@ function ContextProvider({ children }) {
     setGameEnded(false);
     setGameStarted(false);
     setPlayerObj(playerObjInit);
-    setSetsLeft(length / maxFlips);
+    setPairsLeft(length / maxFlips);
     setTileLocationObj(getRandomNumberArr(length, maxFlips));
     setCurrentPlayer(1);
     setPlayerNumber(2);
@@ -121,7 +118,7 @@ function ContextProvider({ children }) {
               };
             })
           ));
-          setSetsLeft((prevLeft) => prevLeft - 1);
+          setPairsLeft((prevLeft) => prevLeft - 1);
           newMove();
         }, 1000);
       } else {
@@ -137,7 +134,7 @@ function ContextProvider({ children }) {
   }, [flips]);
 
   useEffect(() => {
-    if (setsLeft === 0) {
+    if (pairsLeft === 0) {
       if (playerObj[1].matched > playerObj[2].matched) {
         setWinner(1);
       } else if (playerObj[2].matched > playerObj[1].matched) {
@@ -149,11 +146,10 @@ function ContextProvider({ children }) {
       setTimerIsActive(false);
       setCurrentPlayer(0);
     }
-  }, [setsLeft, winner, playerObj]);
+  }, [pairsLeft, winner, playerObj]);
 
   return (
     <Context.Provider value={{
-      tileSetObj,
       tileLocationObj,
       handleSelect,
       playerObj,

@@ -10,12 +10,8 @@ function App() {
     <div className='container-fluid d-flex flex-column p-0 min-vh-100'>
       <Header />
       <Switch>
-        <Route exact path='/'>
-          <Game />
-        </Route>
-        <Route path='/customizer'>
-          <Customizer />
-        </Route>
+        <Route exact path='/' component={Game} />
+        <Route path='/customizer' component={Customizer} />
       </Switch>
       <Footer />
     </div>

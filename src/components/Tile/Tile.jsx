@@ -9,7 +9,7 @@ function Tile({ tileLocationItem, tileSetItem, handleClick, tileBg }) {
     <div className='scene'>
       <div className={`tile ${tileLocationItem.isSelected && 'isTurned'} ${tileLocationItem.isMatched && 'isTurned isMatched'}`}>
         <div className='face front'>
-          <button type='button' className='tileBtn' onClick={() => handleClick(tileLocationItem)} >
+          <button type='button' className='tileBtn' onClick={() => handleClick(tileLocationItem)}>
             <img src={tileBgImg.default} alt='' className='tileImg' />
           </button>
         </div>

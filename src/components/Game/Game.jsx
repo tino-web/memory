@@ -14,7 +14,11 @@ function Game() {
   let onDisplay;
 
   if (!gameStarted && !gameEnded) {
-    onDisplay = <GameSetup />;
+    onDisplay = (
+      <>
+        <GameSetup />
+      </>
+    );
   } else if (gameStarted && !gameEnded) {
     onDisplay = (
       <>

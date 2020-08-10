@@ -1,17 +1,22 @@
 import React, { useContext } from 'react';
 import Tile from '@components/Tile/Tile';
+import { TilesContext } from '@context/tilesContext';
 import { Context } from '@context/gameContext';
 
 function Tiles() {
   const {
-    tileSetObj,
+    getSelectedTileSet,
+  } = useContext(TilesContext);
+
+  const {
     tileLocationObj,
     handleSelect,
     tileBg,
   } = useContext(Context);
 
+  const selectedTileSet = getSelectedTileSet();
   const tilesComponents = tileLocationObj.map((tileLocationItem) => {
-    const tileSetItem = tileSetObj.tiles.find((el) => el.tileId === tileLocationItem.tileId);
+    const tileSetItem = selectedTileSet.tiles.find((el) => el.tileId === tileLocationItem.tileId);
     return (
       <Tile
         key={tileLocationItem.position}
