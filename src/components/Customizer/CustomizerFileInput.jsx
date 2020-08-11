@@ -1,6 +1,6 @@
 import React, { useState, useRef, useContext } from 'react';
-import imageResizeCrop from '@utils/imageResizeCrop';
-import { TilesContext } from '@context/tilesContext';
+import imageResizeCrop from '../../utils/imageResizeCrop';
+import { TilesContext } from '../../context/tilesContext';
 
 function CustomizerFileInput({ setId }) {
   const {

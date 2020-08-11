@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { useParams, Link, useHistory } from 'react-router-dom';
-import { TilesContext } from '@context/tilesContext';
-import CustomizerTile from '@components/CustomizerTile/CustomizerTile';
-import CustomizerFileInput from '@components/CustomizerFileInput/CustomizerFileInput';
-import CustomizerSetInput from '@components/CustomizerSetInput/CustomizerSetInput';
+import { TilesContext } from '../../context/tilesContext';
+import CustomizerTile from './CustomizerTile';
+import CustomizerFileInput from './CustomizerFileInput';
+import CustomizerSetInput from './CustomizerSetInput';
 
 function CustomizerContent() {
   const { tileSetObj } = useContext(TilesContext);

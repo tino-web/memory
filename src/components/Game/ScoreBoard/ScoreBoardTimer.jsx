@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Context } from '@context/gameContext';
+import { GameContext } from '../../../context/gameContext';
 
-function Timer() {
+function ScoreBoardTimer() {
   const [seconds, setSeconds] = useState(0);
-  const { timerIsActive } = useContext(Context);
+  const { timerIsActive } = useContext(GameContext);
+
+  const timer = `${Math.floor(seconds / 60)}:${(`0${Math.floor(seconds % 60)}`).slice(-2)}`;
 
   useEffect(() => {
     let interval = null;
@@ -17,8 +19,6 @@ function Timer() {
     return () => clearInterval(interval);
   }, [timerIsActive, seconds]);
 
-  const timer = `${Math.floor(seconds / 60)}:${(`0${Math.floor(seconds % 60)}`).slice(-2)}`;
-
   return (
     <>
       {timer}
@@ -26,4 +26,4 @@ function Timer() {
   );
 }
 
-export default Timer;
+export default ScoreBoardTimer;

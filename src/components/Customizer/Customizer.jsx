@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
-import CustomizerContent from '@components/CustomizerContent/CustomizerContent';
+import CustomizerContent from './CustomizerContent';
+import './Customizer.css';
 
 function Customizer() {
   const { path } = useRouteMatch();

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { TilesContext } from '@context/tilesContext';
+import { TilesContext } from '../../context/tilesContext';
 
 function CustomizerSetInput() {
   const { addTileSet } = useContext(TilesContext);

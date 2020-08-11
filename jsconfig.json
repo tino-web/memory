@@ -1,16 +1,16 @@
-{
-  "compilerOptions": {
-    "module": "commonJS",
-    "target": "es6",
-    "baseUrl": ".",
-    "paths": {
-      "components/*": ["src/components/*"],
-      "context/*": [ "src/context/*"],
-      "assets/*": [ "src/assets/*"],
-      "utils/*": [ "src/utils/*"],
-    }
-  },
-  "exclude": [
-    ["node_modules","dist","wip"]
-  ]
-}
+// {
+//   "compilerOptions": {
+//     "module": "commonjs",
+//     "target": "es6",
+//     "baseUrl": ".",
+//     "paths": {
+//       "components/*": ["src/components/*"],
+//       "context/*": [ "src/context/*"],
+//       "assets/*": [ "src/assets/*"],
+//       "utils/*": [ "src/utils/*"],
+//     }
+//   },
+//   "exclude": [
+//     ["node_modules","dist","wip"]
+//   ]
+// }

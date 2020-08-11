@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'proptypes';
-import tileSetObjInit from '../data/tileSet';
+import tileSetObjInit from '../data/tileSets';
+import tileItemsObjInit from '../data/tileItems';
 
 const TilesContext = React.createContext();
 
 function TilesContextProvider({ children }) {
   const [selectedTileSet, setSelectedTileSet] = useState(2);
   const [tileSetObj, setTileSetObj] = useState(tileSetObjInit);
+  const [tileItemObj, setTileItemObj] = useState(tileItemsObjInit);
 
   function getSelectedTileSet() {
     return tileSetObj.find((item) => item.tileSetId === selectedTileSet);
@@ -29,6 +31,11 @@ function TilesContextProvider({ children }) {
       return findSet.tiles.reduce((p, c) => (p.tileId > c.tileId ? p.tileId : c.tileId));
     }
     return 0;
+  }
+
+  function getTiles(setId = selectedTileSet) {
+    const selectedTiles = tileItemObj.filter((item) => item.tileSetId === setId);
+    return selectedTiles;
   }
 
   function addTileSet(nameSet) {
@@ -54,6 +61,7 @@ function TilesContextProvider({ children }) {
       getSelectedTileSet,
       addTileSet,
       getMaxTileId,
+      getTiles,
     }}
     >
       {children}

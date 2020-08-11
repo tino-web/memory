@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'proptypes';
 import ReactTooltip from 'react-tooltip';
 
-function PlayerBox({ playerObj, player, isPlaying, isWinner }) {
+function ScoreBoardPlayerBox({ playerObj, player, isPlaying, isWinner }) {
   const accuracy = Math.floor((playerObj.matched / playerObj.moves) * 100) || 0;
 
   return (
@@ -10,7 +10,7 @@ function PlayerBox({ playerObj, player, isPlaying, isWinner }) {
       <ReactTooltip effect='solid' />
       <div className='row'>
         <div
-          className={`col text-uppercase my-auto pt-1 ${player === '1' ? 'top-left-radius' : 'top-right-radius'} ${isPlaying && 'isPlaying'} ${isWinner && 'isWinner'}`} 
+          className={`col text-uppercase my-auto pt-1 ${player === '1' ? 'top-left-radius' : 'top-right-radius'} ${isPlaying && 'isPlaying'} ${isWinner && 'isWinner'}`}
           style={{ height: '35px' }}
         >
           <span style={{ fontWeight: '700', fontSize: '1.1rem' }}>
@@ -57,9 +57,9 @@ function PlayerBox({ playerObj, player, isPlaying, isWinner }) {
   );
 }
 
-export default PlayerBox;
+export default ScoreBoardPlayerBox;
 
-PlayerBox.propTypes = {
+ScoreBoardPlayerBox.propTypes = {
   playerObj: PropTypes.shape({
     name: PropTypes.string.isRequired,
     matched: PropTypes.number.isRequired,

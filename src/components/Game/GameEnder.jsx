@@ -1,5 +1,5 @@
-import React, {useContext} from 'react';
-import { Context } from '../../context/gameContext';
+import React, { useContext } from 'react';
+import { GameContext } from '../../context/gameContext';
 
 function GameEnder() {
   const {
@@ -7,7 +7,7 @@ function GameEnder() {
     playerObj,
     newGame,
     playerNumber,
-  } = useContext(Context);
+  } = useContext(GameContext);
 
   let winnerTitle;
   let winnerImg;
@@ -26,11 +26,14 @@ function GameEnder() {
   return (
     <>
       <div className='row justify-content-center'>
-        <div className='col pt-4 text-center' style={{ maxWidth: '400px' }}>
-
+        <div
+          className='col pt-4 text-center'
+          style={{ maxWidth: '400px' }}
+        >
           <div
             className='row bg-light border rounded-top border-bottom-0 pt-4'
-            style={{ height: '70px' }}>
+            style={{ height: '70px' }}
+          >
             <div className='col my-auto'>
               <h2>
                 {winnerTitle}
@@ -38,15 +41,29 @@ function GameEnder() {
             </div>
           </div>
 
-          <div className='row bg-light border border-bottom-0 border-top-0' style={{ height: '200px' }}>
+          <div
+            className='row bg-light border border-bottom-0 border-top-0'
+            style={{ height: '200px' }}
+          >
             <div className='col my-auto'>
-              <img src={winnerImg} width='300px' alt='' />
+              <img
+                src={winnerImg}
+                width='300px'
+                alt=''
+              />
             </div>
           </div>
 
-          <div className='row bg-light border rounded-bottom border-top-0 pb-4' style={{ height: '55px' }}>
+          <div
+            className='row bg-light border rounded-bottom border-top-0 pb-4'
+            style={{ height: '55px' }}
+          >
             <div className='col my-auto'>
-              <button type='button' className='btn orange border' onClick={newGame}>
+              <button
+                type='button'
+                className='btn orange border'
+                onClick={newGame}
+              >
                 New Game
               </button>
             </div>

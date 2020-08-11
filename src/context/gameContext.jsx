@@ -3,9 +3,9 @@ import PropTypes from 'proptypes';
 import playerObjInit from '../data/playerObj';
 import getRandomNumberArr from '../utils/getRandomNumberArr';
 
-const Context = React.createContext();
+const GameContext = React.createContext();
 
-function ContextProvider({ children }) {
+function GameContextProvider({ children }) {
   const maxFlips = 2;
   const length = 20;
   const [pairsLeft, setPairsLeft] = useState(length / maxFlips);
@@ -131,6 +131,7 @@ function ContextProvider({ children }) {
     if (flips === maxFlips) {
       checkMatches();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flips]);
 
   useEffect(() => {
@@ -149,7 +150,7 @@ function ContextProvider({ children }) {
   }, [pairsLeft, winner, playerObj]);
 
   return (
-    <Context.Provider value={{
+    <GameContext.Provider value={{
       tileLocationObj,
       handleSelect,
       playerObj,
@@ -168,10 +169,10 @@ function ContextProvider({ children }) {
     }}
     >
       {children}
-    </Context.Provider>
+    </GameContext.Provider>
   );
 }
 
-export { ContextProvider, Context };
+export { GameContextProvider, GameContext };
 
-ContextProvider.propTypes = { children: PropTypes.node.isRequired };
+GameContextProvider.propTypes = { children: PropTypes.node.isRequired };

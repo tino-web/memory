@@ -1,33 +1,35 @@
 import React, { useContext } from 'react';
-import { Context } from '@context/gameContext';
-import GameSetup from '@components/GameSetup/GameSetup';
-import Tiles from '@components/Tiles/Tiles';
-import ScoreBoard from '@components/ScoreBoard/ScoreBoard';
-import GameEnder from '@components/GameEnder/GameEnder';
+import { GameContext } from '../../context/gameContext';
+
+import GameSetup from './GameSetup/GameSetup';
+import GameTiles from './GameTiles';
+import ScoreBoard from './ScoreBoard/ScoreBoard';
+import GameEnder from './GameEnder';
+import './Game.css';
 
 function Game() {
   const {
     gameStarted,
     gameEnded,
-  } = useContext(Context);
+  } = useContext(GameContext);
 
-  let onDisplay;
+  let showComponents;
 
   if (!gameStarted && !gameEnded) {
-    onDisplay = (
+    showComponents = (
       <>
         <GameSetup />
       </>
     );
   } else if (gameStarted && !gameEnded) {
-    onDisplay = (
+    showComponents = (
       <>
-        <Tiles />
+        <GameTiles />
         <ScoreBoard />
       </>
     );
   } else if (gameStarted && gameEnded) {
-    onDisplay = (
+    showComponents = (
       <>
         <GameEnder />
         <ScoreBoard />
@@ -37,7 +39,7 @@ function Game() {
 
   return (
     <div className='container'>
-      {onDisplay}
+      {showComponents}
     </div>
   );
 }

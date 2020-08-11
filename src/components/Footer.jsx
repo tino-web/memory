@@ -9,7 +9,11 @@ function Footer() {
           💖
         </span>
         by Tino (
-        <a href='https://github.com/tino-web/memory' target='_blank' rel='noreferrer noopener'>
+        <a
+          href='https://github.com/tino-web/memory'
+          target='_blank'
+          rel='noreferrer noopener'
+        >
           GitHub
         </a>
         )
