@@ -10,36 +10,42 @@ function TilesContextProvider({ children }) {
   const [tileSetObj, setTileSetObj] = useState(tileSetObjInit);
   const [tileItemObj, setTileItemObj] = useState(tileItemsObjInit);
 
+  // Used for Game
   function getSelectedTileSet() {
     return tileSetObj.find((item) => item.tileSetId === selectedTileSet);
   }
 
-  // function addTile(newTileId, setId) {
-  //   const newTile = {
-  //     tileId: newTileId,
-  //     fileName: `${setId}_${newTileId}`,
-  //   }
-  //   setTileSetObj((prevObj) => {
-  //     const newObj = prevObj.map((set) => 
-  //     )
-  //   })
-  // }
-
-  function getMaxTileId(setId) {
-    const findSet = tileSetObj.find((item) => item.tileSetId === Number(setId));
-    if (findSet.tiles.length > 0) {
-      return findSet.tiles.reduce((p, c) => (p.tileId > c.tileId ? p.tileId : c.tileId));
-    }
-    return 0;
-  }
-
   function getTiles(setId = selectedTileSet) {
-    const selectedTiles = tileItemObj.filter((item) => item.tileSetId === setId);
+    const selectedTiles = tileItemObj.filter((item) => item.tileSetId === Number(setId));
     return selectedTiles;
   }
 
+  function addTile(newTileId, setId) {
+    const newTile = {
+      tileId: Number(newTileId),
+      tileSetId: Number(setId),
+      fileName: `${setId}_${newTileId}`,
+    };
+    setTileItemObj((prevObj) => ([
+      ...prevObj,
+      newTile,
+    ]));
+  }
+
+  function deleteTile(tileId, setId, fileName) {
+    setTileItemObj((prevItems) => {
+      const filteredItems = prevItems.filter((item) => (
+        item.tileSetId !== Number(setId) || item.tileId !== Number(tileId)
+      ));
+      return filteredItems;
+    });
+    localStorage.removeItem(fileName);
+  }
+
   function addTileSet(nameSet) {
-    const maxId = tileSetObj.reduce((p, c) => (p.tileSetId > c.tileSetId ? p.tileSetId : c.tileSetId));
+    const maxId = tileSetObj.reduce((prev, curr) => (
+      (prev.tileSetId > curr.tileSetId ? prev.tileSetId : curr.tileSetId)
+    ));
     setTileSetObj((prevObj) => {
       const newObj = (
         [...prevObj,
@@ -47,7 +53,6 @@ function TilesContextProvider({ children }) {
             tileSetId: maxId + 1,
             stored: 'local',
             name: nameSet,
-            tiles: [],
           },
         ]
       );
@@ -55,13 +60,34 @@ function TilesContextProvider({ children }) {
     });
   }
 
+  function deleteTileSet(setId) {
+    setTileSetObj((prevObj) => {
+      const filteredSet = prevObj.filter((item) => item.tileSetId !== Number(setId));
+      return filteredSet;
+    });
+    const tileList = getTiles(setId);
+    tileList.forEach((item) => deleteTile(item.tileId, item.tileSetId, item.fileName));
+  }
+
+  function getMaxTileId(setId) {
+    const tileList = getTiles(setId);
+    if (tileList.length > 0) {
+      return Math.max(...tileList.map((item) => item.tileId), 0);
+    }
+    return 0;
+  }
+
   return (
     <TilesContext.Provider value={{
       tileSetObj,
+      tileItemObj,
       getSelectedTileSet,
       addTileSet,
+      deleteTileSet,
       getMaxTileId,
       getTiles,
+      addTile,
+      deleteTile,
     }}
     >
       {children}
