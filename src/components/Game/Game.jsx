@@ -1,4 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { Prompt } from 'react-router-dom';
+
 import { GameContext } from '../../context/gameContext';
 
 import GameSetup from './GameSetup/GameSetup';
@@ -11,7 +13,11 @@ function Game() {
   const {
     gameStarted,
     gameEnded,
+    newGame,
   } = useContext(GameContext);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => (() => (newGame())), []);
 
   let showComponents;
 
@@ -39,6 +45,10 @@ function Game() {
 
   return (
     <div className='container'>
+      <Prompt
+        when={gameStarted && !gameEnded}
+        message='Are you sure you want to leave your game?'
+      />
       {showComponents}
     </div>
   );

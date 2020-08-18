@@ -95,7 +95,6 @@ function GameContextProvider({ children }) {
     setPairsLeft(length / maxFlips);
     setTileLocationObj(getRandomNumberArr(length, maxFlips));
     setCurrentPlayer(1);
-    setPlayerNumber(2);
     setWinner(0);
     setFlips(0);
   }
