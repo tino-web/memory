@@ -16,7 +16,7 @@ function GameContextProvider({ children }) {
   const [gameEnded, setGameEnded] = useState(false); // default: false
   const [timerIsActive, setTimerIsActive] = useState(false); // default: false
   const [tileBg, setTileBg] = useState('card1'); // default: card1
-  const [playerNumber, setPlayerNumber] = useState(2); // default: 2
+  const [playerNumber, setPlayerNumber] = useState(1); // default: 1
   const [winner, setWinner] = useState(0); // default: 0
   const [playerObj, setPlayerObj] = useState(playerObjInit);
 

@@ -7,7 +7,7 @@ const imageResizeCrop = (inputImage) => {
       const img = new Image();
       img.src = event.target.result;
       img.onload = () => {
-        const targetWidth = 150;
+        const targetWidth = 160;
         const targetHeight = 100;
         const targetRatio = targetHeight / targetWidth;
 

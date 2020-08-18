@@ -1,9 +1,19 @@
 import React from 'react';
 import PropTypes from 'proptypes';
 
-function GameTile({ tileLocationData, tileData, handleClick, tileBg }) {
+function GameTile({ tileLocationData, tileData, handleClick, tileBg, tileFileStored }) {
   const tileBgImg = require(`../../assets/images/tile-bg/${tileBg}.png`);
-  const tileImg = require(`../../assets/images/tiles/${tileData.fileName}`);
+
+  let tileImg;
+
+  if (tileFileStored === 'assets') {
+    // eslint-disable-next-line global-require, import/no-dynamic-require
+    tileImg = require(`../../assets/images/tiles/${tileData.fileName}`);
+  } else if (tileFileStored === 'local') {
+    console.log(tileData.fileName);
+    console.log(tileData);
+    tileImg = localStorage.getItem(tileData.fileName);
+  }
 
   return (
     <div className='scene'>
@@ -24,7 +34,7 @@ function GameTile({ tileLocationData, tileData, handleClick, tileBg }) {
         <div className='face back'>
           <img
             className='tileImg'
-            src={tileImg.default}
+            src={tileFileStored === 'assets' ? tileImg.default : tileImg}
             alt=''
           />
         </div>

@@ -7,7 +7,11 @@ function GameSetupRadio({ cardBgName, cardBg, setCardBg }) {
   return (
     <div className='col-4 my-auto'>
       <label htmlFor={cardBgName}>
-        <img src={cardBgImage.default} alt='' className='w-100' />
+        <img
+          src={cardBgImage.default}
+          alt=''
+          className='w-100'
+        />
         <input
           type='radio'
           id={cardBgName}

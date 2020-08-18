@@ -8,7 +8,7 @@ import useTileItems from '../hooks/useTileItems';
 const TilesContext = React.createContext();
 
 function TilesContextProvider({ children }) {
-  const [selectedTileSet, setSelectedTileSet] = useState(2);
+  const [selectedTileSet, setSelectedTileSet] = useState();
   const [tileSetObj, setTileSetObj] = useTileSets(tileSetObjInit);
   const [tileItemObj, setTileItemObj] = useTileItems(tileItemsObjInit);
 
@@ -79,6 +79,7 @@ function TilesContextProvider({ children }) {
       tileSetObj,
       tileItemObj,
       getSelectedTileSet,
+      setSelectedTileSet,
       addTileSet,
       deleteTileSet,
       getMaxTileId,

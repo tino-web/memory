@@ -1,10 +1,12 @@
 import React, { useContext, useState, useRef } from 'react';
 
+import { TilesContext } from '../../../context/tilesContext';
 import { GameContext } from '../../../context/gameContext';
 import logoImg from '../../../assets/images/logo.png';
 import GameSetupName from './GameSetupName';
 import GameSetupSwitch from './GameSetupSwitch';
 import GameSetupRadio from './GameSetupRadio';
+import GameSetupTile from './GameSetupTile';
 
 function GameSetup() {
   const {
@@ -14,10 +16,17 @@ function GameSetup() {
     updatePlayer,
   } = useContext(GameContext);
 
+  const {
+    tileSetObj,
+    getTiles,
+    setSelectedTileSet,
+  } = useContext(TilesContext);
+
   const inputRefP1 = useRef(null);
   const inputRefP2 = useRef(null);
-  const [playerToggle, setPlayerToggle] = useState(false);
+  const [playerToggle, setPlayerToggle] = useState(true);
   const [cardBg, setCardBg] = useState('card1');
+  const [selectSet, setSelectSet] = useState(1);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,8 +34,26 @@ function GameSetup() {
     updatePlayer('name', inputRefP2.current.value, 2);
     setPlayerNumber(playerToggle ? 1 : 2);
     setTileBg(cardBg);
+    setSelectedTileSet(selectSet);
     setGameStarted(true);
   };
+
+  const tileGrid = tileSetObj.map((item) => {
+    const tileItems = getTiles(item.tileSetId);
+    if (tileItems.length === 10) {
+      return (
+        <GameSetupTile
+          tileFileStored={item.stored}
+          fileName={tileItems[0] ? tileItems[0].fileName : null}
+          key={`set_${item.tileSetId}`}
+          id={item.tileSetId}
+          selectSet={selectSet}
+          setSelectSet={setSelectSet}
+        />
+      );
+    }
+    return null;
+  });
 
   return (
     <>
@@ -60,9 +87,9 @@ function GameSetup() {
 
             <div
               className='row justify-content-center bg-light border border-bottom-0 border-top-0 text-center'
-              style={{ height: '140px' }}
+              // style={{ height: '140px' }}
             >
-              Radio buttons go here
+              {tileGrid}
             </div>
 
             <div

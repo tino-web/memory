@@ -4,13 +4,18 @@ import { TilesContext } from '../../context/tilesContext';
 import { GameContext } from '../../context/gameContext';
 
 function GameTiles() {
-  const { getTiles } = useContext(TilesContext);
+  const {
+    getTiles,
+    getSelectedTileSet,
+  } = useContext(TilesContext);
 
   const {
     tileLocationObj,
     handleSelect,
     tileBg,
   } = useContext(GameContext);
+
+  const tileFileStored = getSelectedTileSet().stored;
 
   const tileItems = getTiles();
   const tilesComponents = tileLocationObj.map((tileLocationData) => {
@@ -22,6 +27,7 @@ function GameTiles() {
         handleClick={handleSelect}
         tileLocationData={tileLocationData}
         tileBg={tileBg}
+        tileFileStored={tileFileStored}
       />
     );
   });
