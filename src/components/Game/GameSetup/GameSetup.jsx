@@ -72,23 +72,43 @@ function GameSetup() {
               />
             </div>
 
-            <GameSetupSwitch playerToggle={playerToggle} setPlayerToggle={setPlayerToggle} />
-            <GameSetupName playerNumber='1' hideRow={false} inputRef={inputRefP1} />
-            <GameSetupName playerNumber='2' hideRow={playerToggle} inputRef={inputRefP2} />
+            <GameSetupSwitch
+              playerToggle={playerToggle}
+              setPlayerToggle={setPlayerToggle}
+            />
+            <GameSetupName
+              playerNumber='1'
+              hideRow={false}
+              inputRef={inputRefP1}
+            />
+            <GameSetupName
+              playerNumber='2'
+              hideRow={playerToggle}
+              inputRef={inputRefP2}
+            />
 
             <div
               className='row justify-content-center bg-light border border-bottom-0 border-top-0 text-center'
               style={{ height: '180px' }}
             >
-              <GameSetupRadio cardBgName='card1' cardBg={cardBg} setCardBg={setCardBg} />
-              <GameSetupRadio cardBgName='card2' cardBg={cardBg} setCardBg={setCardBg} />
-              <GameSetupRadio cardBgName='card3' cardBg={cardBg} setCardBg={setCardBg} />
+              <GameSetupRadio
+                cardBgName='card1'
+                cardBg={cardBg}
+                setCardBg={setCardBg}
+              />
+              <GameSetupRadio
+                cardBgName='card2'
+                cardBg={cardBg}
+                setCardBg={setCardBg}
+              />
+              <GameSetupRadio
+                cardBgName='card3'
+                cardBg={cardBg}
+                setCardBg={setCardBg}
+              />
             </div>
 
-            <div
-              className='row justify-content-center bg-light border border-bottom-0 border-top-0 text-center'
-              // style={{ height: '140px' }}
-            >
+            <div className='row justify-content-center bg-light border border-bottom-0 border-top-0 text-center'>
               {tileGrid}
             </div>
 

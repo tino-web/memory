@@ -21,6 +21,7 @@ function GameSetupName({ playerNumber, hideRow, inputRef }) {
           placeholder='Enter name'
           required={!hideRow}
           ref={inputRef}
+          maxLength='15'
         />
       </div>
     </div>
