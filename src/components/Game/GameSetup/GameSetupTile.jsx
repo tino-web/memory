@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'proptypes';
 
 function GameSetupTile({ id, fileName, tileFileStored, selectSet, setSelectSet }) {
@@ -14,7 +14,7 @@ function GameSetupTile({ id, fileName, tileFileStored, selectSet, setSelectSet }
   }
 
   return (
-    <div className='col-4 pb-3' style={{ height: '100px' }}>
+    <div className='col-4 pb-3' style={{ height: '105px' }}>
       <label htmlFor={id}>
         <img
           className='tileImgSetup customizerTileBtn'
@@ -27,6 +27,7 @@ function GameSetupTile({ id, fileName, tileFileStored, selectSet, setSelectSet }
           value={id}
           checked={selectSet === id}
           name='radioSet'
+          style={{ marginTop: '10px' }}
           onChange={(e) => setSelectSet(Number(e.target.id))}
         />
       </label>
