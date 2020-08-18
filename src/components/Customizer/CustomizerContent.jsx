@@ -72,7 +72,7 @@ function CustomizerContent() {
           }
         </div>
         <div className='col-6 px-0 text-center my-auto text-uppercase text-white'>
-          <span style={{ fontWeight: '700', fontSize: '1.1rem', overflow: 'hidden' }}>
+          <span style={{ fontWeight: '700', fontSize: '1rem', overflow: 'hidden' }}>
             {title}
           </span>
         </div>

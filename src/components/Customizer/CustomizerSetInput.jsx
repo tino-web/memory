@@ -23,7 +23,7 @@ function CustomizerSetInput() {
           onChange={(e) => setNewSetInputValue(e.target.value)}
           className='form-control form-control-sm'
           placeholder='Enter set name'
-          maxLength='20'
+          maxLength='18'
         />
         <div className='input-group-append'>
           <button

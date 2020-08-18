@@ -17,6 +17,7 @@ module.exports = function(_env, argv) {
       filename: isProduction ? 'assets/js/[name].[chunkhash:8].js' : 'assets/js/[name].[hash].js'
     },
     devServer: {
+      host: '172.18.5.152',
       port: 3001,
       compress: true,
       historyApiFallback: true,
