@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'proptypes';
 
 function GameTile({ tileLocationData, tileData, handleClick, tileBg, tileFileStored }) {
+  // eslint-disable-next-line global-require, import/no-dynamic-require
   const tileBgImg = require(`../../assets/images/tile-bg/${tileBg}.png`);
 
   let tileImg;
@@ -10,8 +11,6 @@ function GameTile({ tileLocationData, tileData, handleClick, tileBg, tileFileSto
     // eslint-disable-next-line global-require, import/no-dynamic-require
     tileImg = require(`../../assets/images/tiles/${tileData.fileName}`);
   } else if (tileFileStored === 'local') {
-    console.log(tileData.fileName);
-    console.log(tileData);
     tileImg = localStorage.getItem(tileData.fileName);
   }
 
@@ -59,4 +58,5 @@ GameTile.propTypes = {
   }).isRequired,
   handleClick: PropTypes.func.isRequired,
   tileBg: PropTypes.string.isRequired,
+  tileFileStored: PropTypes.string.isRequired,
 };

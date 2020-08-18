@@ -9,7 +9,12 @@ function ScoreBoard() {
     currentPlayer,
     playerNumber,
     winner,
+    newGame,
   } = useContext(GameContext);
+
+  const handleClick = () => {
+    newGame();
+  };
 
   return (
     <div className='row justify-content-center mt-3'>
@@ -38,8 +43,19 @@ function ScoreBoard() {
                 <span style={{ fontSize: '2.5rem' }}>
                   { playerNumber === 2
                     ? 'vs'
-                    : '' }
+                    : ' ' }
                 </span>
+              </div>
+            </div>
+            <div className='row'>
+              <div className='col my-auto align-self-end'>
+                <button
+                  className='btn btn-light border btn-sm'
+                  type='button'
+                  onClick={handleClick}
+                >
+                  RESET
+                </button>
               </div>
             </div>
           </div>
