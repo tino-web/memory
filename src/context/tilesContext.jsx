@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import PropTypes from 'proptypes';
 import tileSetObjInit from '../data/tileSets';
 import tileItemsObjInit from '../data/tileItems';
+import useTileSets from '../hooks/useTileSets';
+import useTileItems from '../hooks/useTileItems';
 
 const TilesContext = React.createContext();
 
 function TilesContextProvider({ children }) {
   const [selectedTileSet, setSelectedTileSet] = useState(2);
-  const [tileSetObj, setTileSetObj] = useState(tileSetObjInit);
-  const [tileItemObj, setTileItemObj] = useState(tileItemsObjInit);
+  const [tileSetObj, setTileSetObj] = useTileSets(tileSetObjInit);
+  const [tileItemObj, setTileItemObj] = useTileItems(tileItemsObjInit);
 
   // Used for Game
   function getSelectedTileSet() {
@@ -46,18 +48,13 @@ function TilesContextProvider({ children }) {
     const maxId = tileSetObj.reduce((prev, curr) => (
       (prev.tileSetId > curr.tileSetId ? prev.tileSetId : curr.tileSetId)
     ));
-    setTileSetObj((prevObj) => {
-      const newObj = (
-        [...prevObj,
-          {
-            tileSetId: maxId + 1,
-            stored: 'local',
-            name: nameSet,
-          },
-        ]
-      );
-      return newObj;
-    });
+    setTileSetObj((prevObj) => ([...prevObj,
+      {
+        tileSetId: maxId + 1,
+        stored: 'local',
+        name: nameSet,
+      },
+    ]));
   }
 
   function deleteTileSet(setId) {

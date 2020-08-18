@@ -59,6 +59,13 @@ function GameSetup() {
             </div>
 
             <div
+              className='row justify-content-center bg-light border border-bottom-0 border-top-0 text-center'
+              style={{ height: '140px' }}
+            >
+              Radio buttons go here
+            </div>
+
+            <div
               className='row justify-content-center bg-light border rounded-bottom border-top-0 pb-4'
               style={{ height: '50px' }}
             >
