@@ -14,10 +14,10 @@ function GameSetupTile({ id, fileName, tileFileStored, selectSet, setSelectSet }
   }
 
   return (
-    <div className='col-4 pb-3' style={{ height: '110px' }}>
+    <div className='col-4 pb-3' style={{ height: '100px' }}>
       <label htmlFor={id}>
         <img
-          className='tileImg customizerTileBtn'
+          className='tileImgSetup customizerTileBtn'
           src={tileFileStored === 'assets' ? tileImg.default : tileImg}
           alt=''
         />
