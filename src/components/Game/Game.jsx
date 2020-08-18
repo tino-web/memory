@@ -1,29 +1,41 @@
-import React, { useContext } from 'react';
-import { Context } from '@context/gameContext';
-import GameSetup from '@components/GameSetup/GameSetup';
-import Tiles from '@components/Tiles/Tiles';
-import ScoreBoard from '@components/ScoreBoard/ScoreBoard';
-import GameEnder from '@components/GameEnder/GameEnder';
+import React, { useContext, useEffect } from 'react';
+import { Prompt } from 'react-router-dom';
+
+import { GameContext } from '../../context/gameContext';
+
+import GameSetup from './GameSetup/GameSetup';
+import GameTiles from './GameTiles';
+import ScoreBoard from './ScoreBoard/ScoreBoard';
+import GameEnder from './GameEnder';
+import './Game.css';
 
 function Game() {
   const {
     gameStarted,
     gameEnded,
-  } = useContext(Context);
+    newGame,
+  } = useContext(GameContext);
 
-  let onDisplay;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => (() => (newGame())), []);
+
+  let showComponents;
 
   if (!gameStarted && !gameEnded) {
-    onDisplay = <GameSetup />;
-  } else if (gameStarted && !gameEnded) {
-    onDisplay = (
+    showComponents = (
       <>
-        <Tiles />
+        <GameSetup />
+      </>
+    );
+  } else if (gameStarted && !gameEnded) {
+    showComponents = (
+      <>
+        <GameTiles />
         <ScoreBoard />
       </>
     );
   } else if (gameStarted && gameEnded) {
-    onDisplay = (
+    showComponents = (
       <>
         <GameEnder />
         <ScoreBoard />
@@ -33,7 +45,11 @@ function Game() {
 
   return (
     <div className='container'>
-      {onDisplay}
+      <Prompt
+        when={gameStarted && !gameEnded}
+        message='Are you sure you want to leave your game?'
+      />
+      {showComponents}
     </div>
   );
 }
